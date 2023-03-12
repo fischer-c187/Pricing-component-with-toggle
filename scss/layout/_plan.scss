@@ -1,0 +1,12 @@
+.plan {
+  padding: 5em 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2em 0;
+
+  @include desktop {
+    flex-direction: row;
+    align-items: center;
+  }
+}

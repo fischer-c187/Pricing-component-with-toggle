@@ -1,0 +1,19 @@
+.head {
+  &__title {
+    font-size: 2rem;
+    margin-bottom: 2em;
+    text-align: center;
+  }
+}
+
+.selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  color: $font-card-secondary-color;
+
+  &__duration {
+    opacity: 0.5;
+  }
+}

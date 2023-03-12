@@ -1,0 +1,16 @@
+html, body{
+  height: 100%;
+}
+
+body {
+  background: $background-color url('/images/bg-top.svg') no-repeat top -25px right -200px;
+}
+
+.main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 4em;
+}

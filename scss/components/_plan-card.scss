@@ -1,0 +1,47 @@
+.card {
+  width: 352px;
+  background-color: #fff;
+  border-radius: 0.5em;
+  padding: 2em;
+
+  &__title {
+    font-size: 1.125em;
+    color: $font-card-secondary-color;
+  }
+  &__price {
+    display: none;
+    font-size: 4em;
+    margin: 0.500em 0;
+  }
+
+  &__spec {
+    height: 50px;
+    line-height: 50px;
+    color: $font-card-secondary-color;
+    border-bottom: 1px solid rgba($font-card-secondary-color, 0.25);
+
+    &:nth-of-type(3){
+      border-top: 1px solid rgba($font-card-secondary-color, 0.25);
+    }
+  }
+
+  &__btn {
+    margin-top: 2.5em;
+  }
+
+  &--invert {
+    background: $blue-gradient;
+    color: white;
+
+    .card__title, .card__spec{
+      color: $font-secondary-color;
+      border-color: rgba($font-secondary-color, 0.25);
+    }
+
+    @include desktop {
+      padding: 3.5em 2em;
+    }
+  }
+
+
+}

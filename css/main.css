@@ -1,0 +1,271 @@
+@charset "UTF-8";
+/***
+    The new CSS reset - version 1.8.2 (last updated 23.12.2022)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a,
+button {
+  cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-inline-size: 100%;
+  max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input,
+textarea {
+  -webkit-user-select: auto;
+  user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+pre {
+  all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+  color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+  content: "";
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+  display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable=false])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-user-select: auto;
+  user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable=true]) {
+  -webkit-user-drag: element;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: #F7F7FE url("/images/bg-top.svg") no-repeat top -25px right -200px;
+}
+
+.main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4em;
+}
+
+html {
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  color: #4A4D60;
+  font-weight: 700;
+}
+
+.plan {
+  padding: 5em 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2em 0;
+}
+@media screen and (min-width: 1050px) {
+  .plan {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.visually-hidden {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+  clip: rect(1px, 1px, 1px, 1px); /*maybe deprecated but we need to support legacy browsers */
+  clip-path: inset(50%); /*modern browsers, clip-path works inwards from each corner*/
+  white-space: nowrap; /* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
+}
+
+.selector__toggle {
+  display: block;
+  position: relative;
+  width: 52px;
+  height: 30px;
+  background: linear-gradient(155deg, rgb(162, 167, 240) 0%, rgb(105, 110, 221) 100%);
+  border-radius: 1em;
+}
+.selector__toggle::after {
+  content: "";
+  display: block;
+  width: 22px;
+  height: 22px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  right: 0;
+  transform: translate(0, -50%);
+  transition: all 500ms;
+}
+
+.checkbox-plan {
+  display: none;
+}
+.checkbox-plan:checked ~ .head .selector__toggle::after {
+  transform: translate(100%, -50%);
+}
+
+.checkbox-plan:checked ~ .plan .monthly-price {
+  display: block;
+}
+
+.checkbox-plan:not(:checked) ~ .plan .annually-price {
+  display: block;
+}
+
+.head__title {
+  font-size: 2rem;
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+.selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  color: #6E728E;
+}
+.selector__duration {
+  opacity: 0.5;
+}
+
+.button {
+  background: linear-gradient(155deg, rgb(162, 167, 240) 0%, rgb(105, 110, 221) 100%);
+  color: white;
+  font-size: 0.75rem;
+  width: 100%;
+  height: 44px;
+  border-radius: 6px;
+}
+.button:hover {
+  background: white;
+  color: #6D72DE;
+  border: 1px solid #6D72DE;
+}
+.button--invert {
+  color: #656adc;
+  background: white;
+}
+.button--invert:hover {
+  background: rgba(255, 255, 255, 0);
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.card {
+  width: 352px;
+  background-color: #fff;
+  border-radius: 0.5em;
+  padding: 2em;
+}
+.card__title {
+  font-size: 1.125em;
+  color: #6E728E;
+}
+.card__price {
+  display: none;
+  font-size: 4em;
+  margin: 0.5em 0;
+}
+.card__spec {
+  height: 50px;
+  line-height: 50px;
+  color: #6E728E;
+  border-bottom: 1px solid rgba(110, 114, 142, 0.25);
+}
+.card__spec:nth-of-type(3) {
+  border-top: 1px solid rgba(110, 114, 142, 0.25);
+}
+.card__btn {
+  margin-top: 2.5em;
+}
+.card--invert {
+  background: linear-gradient(155deg, rgb(162, 167, 240) 0%, rgb(105, 110, 221) 100%);
+  color: white;
+}
+.card--invert .card__title, .card--invert .card__spec {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+@media screen and (min-width: 1050px) {
+  .card--invert {
+    padding: 3.5em 2em;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

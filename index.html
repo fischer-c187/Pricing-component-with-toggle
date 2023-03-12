@@ -5,48 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="./css/main.css">
   <title>Frontend Mentor | [Challenge Name Here]</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
-
-  Our Pricing
-  Annually
-  Monthly
-
-  Basic
-  &dollar;19.99
-  &dollar;199.99
-  500 GB Storage
-  2 Users Allowed
-  Send up to 3 GB
-  Learn More
-
-  Professional
-  &dollar;24.99
-  &dollar;249.99
-  1 TB Storage
-  5 Users Allowed
-  Send up to 10 GB
-  Learn More
-
-  Master
-  &dollar;39.99
-  &dollar;399.99
-  2 TB Storage
-  10 Users Allowed
-  Send up to 20 GB
-  Learn More
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+  <main class="main">
+    <input type="checkbox" class="checkbox-plan" id="type_price">
+    <div class="head">
+      <h1 class="head__title">Our Pricing</h1>
+      <div class="selector">
+        <span class="selector__duration">Annually</span>
+        <label for="type_price" class="selector__toggle"><span class="visually-hidden">Label for the input</span></label>
+        <!-- <input type="checkbox" class="selector__toggle" id="type_price"> -->
+        <span class="selector__duration">Monthly</span>
+      </div>
+    </div>
+    <div class="plan">
+      <article class="card">
+        <h2 class="card__title">Basic</h2>
+        <p class="card__price monthly-price">&dollar;19.99</p>
+        <p class="card__price annually-price">&dollar;199.99</p>
+        <p class="card__spec">500 GB Storage</p>
+        <p class="card__spec">2 Users Allowed</p>
+        <p class="card__spec">Send up to 3 GB</p>
+        <button type="button" class="card__btn button">Learn More</button>
+      </article>
+      <article class="card card--invert">
+        <h2 class="card__title">Professional</h2>
+        <p class="card__price monthly-price">&dollar;24.99</p>
+        <p class="card__price annually-price">&dollar;249.99</p>
+        <p class="card__spec">1 TB Storage</p>
+        <p class="card__spec">5 Users Allowed</p>
+        <p class="card__spec">Send up to 10 GB</p>
+        <button type="button" class="card__btn button button--invert">Learn More</button>
+      </article>
+      <article class="card">
+        <h2 class="card__title">Master</h2>
+        <p class="card__price monthly-price">&dollar;39.99</p>
+        <p class="card__price annually-price">&dollar;399.99</p>
+        <p class="card__spec">2 TB Storage</p>
+        <p class="card__spec">10 Users Allowed</p>
+        <p class="card__spec">Send up to 20 GB</p>
+        <button type="button" class="card__btn button">Learn More</button>
+      </article>
+    </div>
+  </main>
 </body>
 </html>
