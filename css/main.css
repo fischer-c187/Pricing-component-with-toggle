@@ -103,7 +103,12 @@ html, body {
 }
 
 body {
-  background: #F7F7FE url("/images/bg-top.svg") no-repeat top -25px right -200px;
+  background: #F7F7FE url("../images/bg-top.svg") no-repeat top -25px right -200px;
+}
+@media screen and (min-width: 1050px) {
+  body {
+    background: url("../images/bg-top.svg") no-repeat top right, url("../images/bg-bottom.svg") no-repeat bottom left #F7F7FE;
+  }
 }
 
 .main {
